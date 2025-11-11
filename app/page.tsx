@@ -34,6 +34,7 @@ export default function Home() {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [noPosition, setNoPosition] = useState({ top: "0px", left: "120px" });
+  const [showModal, setShowModal] = useState(false);
 
   const handleNext = () => {
     setCurrentSlide((prev) => {
@@ -107,11 +108,12 @@ export default function Home() {
       ) : (
         <div className="relative mt-6 w-full max-w-sm h-48 flex items-center justify-center">
           <button
-            onClick={() =>
-              alert(
-                "Yay! She said YES! 💖. I actually haven't implemented a way to know what you answered so you'll have to show me.. oops."
-              )
-            }
+            // onClick={() =>
+            //   alert(
+            //     "Yay! She said YES! 💖. I actually haven't implemented a way to know what you answered so you'll have to show me.. oops."
+            //   )
+            // }
+            onClick={() => setShowModal(true)}
             className="text-base sm:text-lg font-semibold w-24 h-12 bg-green-400 hover:bg-green-500 rounded-md transition"
           >
             Yes
@@ -129,6 +131,25 @@ export default function Home() {
           >
             No
           </button>
+        </div>
+      )}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-opacity-10 z-50 px-4">
+          <div className="bg-white rounded-lg p-6 w-full max-w-sm text-center">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4">
+              💖 Congratulations!
+            </h2>
+            <p className="text-lg sm:text-xl mb-6">
+              Yay! She said YES! I actually haven't implemented a way to know
+              what you answered, so you'll have to show me.. oops.
+            </p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="text-base sm:text-lg font-semibold w-24 h-10 bg-pink-300 hover:bg-pink-500 rounded-md transition"
+            >
+              Close
+            </button>
+          </div>
         </div>
       )}
     </div>
