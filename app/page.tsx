@@ -108,7 +108,9 @@ export default function Home() {
         <div className="relative mt-6 w-full max-w-sm h-48 flex items-center justify-center">
           <button
             onClick={() =>
-              alert("Yay! She said YES! 💖. Show me in person 😉.")
+              alert(
+                "Yay! She said YES! 💖. I actually haven't implemented a way to know what you answered so you'll have to show me.. oops."
+              )
             }
             className="text-base sm:text-lg font-semibold w-24 h-12 bg-green-400 hover:bg-green-500 rounded-md transition"
           >
